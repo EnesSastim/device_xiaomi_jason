@@ -434,6 +434,9 @@ PRODUCT_PACKAGES += \
     libstagefrighthw \
     android.hardware.media.omx@1.0-impl
 
+# Performance
+include vendor/qcom/common/qti-vendor.mk
+
 # Power
 PRODUCT_PACKAGES += \
     android.hardware.power@1.1-service-qti
