@@ -33,8 +33,8 @@ LOCAL_C_INCLUDES += \
     external/skia/include/core \
     external/skia/include/images \
     $(TARGET_OUT_HEADERS)/qcom/display \
-    $(call project-path-for,qcom-camera)/QCamera2/stack/common \
-    $(call project-path-for,qcom-camera)/QCamera2/stack/mm-camera-interface/inc \
+    device/xiaomi/jason/camera/QCamera2/stack/common \
+    device/xiaomi/jason/camera/QCamera2/stack/mm-camera-interface/inc \
     $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr/include
 
 LOCAL_ADDITIONAL_DEPENDENCIES := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ/usr
