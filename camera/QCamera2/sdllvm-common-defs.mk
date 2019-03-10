@@ -8,7 +8,7 @@ ifeq ($(CAMERA_USE_SDCLANG),)
 
   # Append Android build top if path is not absolute.
   ifneq ($(SDCLANG_PATH),$(filter /%,$(SDCLANG_PATH)))
-    CAMERA_SDCLANG_ABS_PATH := $(ANDROID_BUILD_TOP)/$(SDCLANG_PATH)
+    CAMERA_SDCLANG_ABS_PATH := ./$(SDCLANG_PATH)
   else
     CAMERA_SDCLANG_ABS_PATH := $(SDCLANG_PATH)
   endif
@@ -19,7 +19,7 @@ ifeq ($(CAMERA_USE_SDCLANG),)
     ifneq ($(shell expr $(CAMERA_SDCLANG_VERSION) \>= 4), 1)
       # Append Android build top if path is not absolute.
       ifneq ($(SDCLANG_PATH_2),$(filter /%,$(SDCLANG_PATH_2)))
-      CAMERA_SDCLANG_ABS_PATH_2 := $(ANDROID_BUILD_TOP)/$(SDCLANG_PATH_2)
+      CAMERA_SDCLANG_ABS_PATH_2 := ./$(SDCLANG_PATH_2)
       else
       CAMERA_SDCLANG_ABS_PATH_2 := $(SDCLANG_PATH_2)
       endif
