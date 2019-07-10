@@ -49,6 +49,7 @@ TARGET_USES_64_BIT_BINDER := true
 
 # Kernel
 BOARD_KERNEL_CMDLINE += console=ttyMSM0,115200,n8 androidboot.console=ttyMSM0 earlycon=msm_serial_dm,0xc170000 androidboot.hardware=qcom user_debug=31 msm_rtb.filter=0x37 ehci-hcd.park=3 lpm_levels.sleep_disabled=1 sched_enable_hmp=1 sched_enable_power_aware=1 service_locator.enable=1 swiotlb=1 firmware_class.path=/vendor/firmware_mnt/image loop.max_part=7
+BOARD_KERNEL_CMDLINE += androidboot.selinux=permissive
 BOARD_KERNEL_BASE        := 0x00000000
 BOARD_KERNEL_PAGESIZE    := 4096
 BOARD_KERNEL_TAGS_OFFSET := 0x01E00000
@@ -60,7 +61,15 @@ TARGET_KERNEL_CONFIG := lineageos_jason_defconfig
 TARGET_KERNEL_VERSION := 4.4
 
 # QCOM hardware
+TARGET_SPECIFIC_HEADER_PATH := $(DEVICE_PATH)/include
 BOARD_USES_QCOM_HARDWARE := true
+TARGET_USES_QCOM_BSP := false
+
+TARGET_QCOM_DISPLAY_VARIANT := caf-sdm660
+TARGET_QCOM_MEDIA_VARIANT := caf-sdm660
+TARGET_QCOM_AUDIO_VARIANT := caf-sdm660
+TARGET_WLAN_VARIANT := caf
+TARGET_QCOM_BLUETOOTH_VARIANT := caf-sdm660
 
 # ANT+
 BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
@@ -69,7 +78,7 @@ BOARD_ANT_WIRELESS_DEVICE := "qualcomm-hidl"
 BOARD_USES_ALSA_AUDIO := true
 
 ifneq ($(TARGET_USES_AOSP_FOR_AUDIO), true)
-USE_CUSTOM_AUDIO_POLICY := 1
+#USE_CUSTOM_AUDIO_POLICY := 1
 AUDIO_FEATURE_ENABLED_COMPRESS_CAPTURE := false
 AUDIO_FEATURE_ENABLED_COMPRESS_VOIP := true
 AUDIO_FEATURE_ENABLED_EXTN_FORMATS := true
@@ -126,6 +135,8 @@ AUDIO_FEATURE_ENABLED_SOURCE_TRACKING := true
 AUDIO_FEATURE_ENABLED_GEF_SUPPORT := true
 AUDIO_FEATURE_ENABLED_RAS := true
 AUDIO_FEATURE_ENABLED_SND_MONITOR := true
+AUDIO_FEATURE_ENABLED_DYNAMIC_LOG := false
+AUDIO_DISABLE_SWAP_CHANNELS := true
 
 # Bluetooth
 BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := $(DEVICE_PATH)/bluetooth
@@ -134,6 +145,7 @@ BOARD_HAVE_BLUETOOTH_QCOM := true
 QCOM_BT_USE_BTNV := true
 
 # Camera
+BOARD_USES_SNAPDRAGONCAMERA_VERSION := 2
 BOARD_QTI_CAMERA_32BIT_ONLY := true
 TARGET_USES_QTI_CAMERA_DEVICE := true
 USE_DEVICE_SPECIFIC_CAMERA := true
@@ -146,6 +158,7 @@ BOARD_USES_QCNE := true
 
 # Crypto
 TARGET_HW_DISK_ENCRYPTION := true
+TARGET_CRYPTFS_HW_PATH := vendor/qcom/opensource/commonsys/cryptfs_hw
 
 # Display
 MAX_EGL_CACHE_KEY_SIZE := 12*1024
@@ -224,7 +237,7 @@ TARGET_USES_INTERACTION_BOOST := true
 TARGET_RECOVERY_FSTAB := $(DEVICE_PATH)/recovery/root/recovery.fstab
 
 # RIL
-TARGET_RIL_VARIANT := caf
+#TARGET_RIL_VARIANT := caf
 
 # Releasetools
 TARGET_RECOVERY_UPDATER_LIBS := librecovery_updater_jason
@@ -235,6 +248,7 @@ BOARD_SYSTEMSDK_VERSIONS := 28
 
 # SELinux
 include device/qcom/sepolicy/sepolicy.mk
+include vendor/omni/sepolicy/sepolicy.mk
 
 BOARD_PLAT_PUBLIC_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/public
 BOARD_PLAT_PRIVATE_SEPOLICY_DIR += $(DEVICE_PATH)/sepolicy/private
