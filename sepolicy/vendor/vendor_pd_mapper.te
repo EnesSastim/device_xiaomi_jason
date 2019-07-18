@@ -1,0 +1,1 @@
+allow vendor_pd_mapper media_rw_data_file:file { execute getattr open read };
