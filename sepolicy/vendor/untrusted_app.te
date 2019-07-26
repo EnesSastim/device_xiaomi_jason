@@ -1,0 +1,22 @@
+allow untrusted_app {
+  sysfs_kgsl:dir
+  mnt_vendor_file:dir
+  proc_asound:dir
+  vendor_camera_prop:file
+  bt_firmware_file:dir
+  firmware_file:dir
+  proc_tty_drivers:file
+  serialno_prop:file
+  vendor_file:file
+  vendor_firmware_file:dir
+} { create search getattr open read setattr ioctl write add_name remove_name rmdir relabelfrom };
+
+allow untrusted_app_25 user_profile_data_file:dir remove_name;
+
+allow untrusted_app {
+  hal_memtrack_default:binder
+  hal_memtrack_hwservice:hwservice_manager
+  proc_zoneinfo:file
+  vendor_camera_prop:file
+  vendor_default_prop:file
+} { create search getattr open read setattr ioctl write add_name remove_name rmdir relabelfrom call find };

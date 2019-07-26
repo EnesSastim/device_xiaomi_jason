@@ -1,0 +1,8 @@
+allow priv_app {
+  camera_prop:file
+  vendor_default_prop:file
+  bt_firmware_file:filesystem
+  firmware_file:filesystem
+  mnt_vendor_file:dir 
+  sysfs:file 
+} { create search getattr open read setattr ioctl write add_name remove_name rmdir relabelfrom };
