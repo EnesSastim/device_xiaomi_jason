@@ -341,11 +341,11 @@
     <ctl name="EAR PA Gain" value="POS_1P5_DB" />
     <ctl name="EAR PA Boost" value="DISABLE" />
 
-    <ctl name="RX1 Digital Volume" value="84" />
-    <ctl name="RX2 Digital Volume" value="84" />
-    <ctl name="RX3 Digital Volume" value="84" />
-    <ctl name="RX4 Digital Volume" value="88" />
-    <ctl name="RX5 Digital Volume" value="88" />
+    <ctl name="RX1 Digital Volume" value="94" />
+    <ctl name="RX2 Digital Volume" value="94" />
+    <ctl name="RX3 Digital Volume" value="94" />
+    <ctl name="RX4 Digital Volume" value="98" />
+    <ctl name="RX5 Digital Volume" value="98" />
     <ctl name="ADC1 Volume" value="4" />
     <ctl name="ADC2 Volume" value="4" />
     <ctl name="ADC3 Volume" value="4" />
@@ -2199,7 +2199,8 @@
     </path>
 
     <path name="handset">
-        <ctl name="EAR SPKR PA Gain" value="G_3_DB" />
+        <ctl name="EAR SPKR PA Gain" value="G_10_DB" />
+        <ctl name="RX4 Digital Volume" value="98" />
         <path name="speaker-mono" />
     </path>
 
