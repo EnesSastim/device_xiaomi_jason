@@ -1,0 +1,8 @@
+[
+    {
+        "remote": "blobs",
+        "repository": "proprietary_vendor_qcom_common",
+        "target_path": "vendor/qcom/common",
+        "revision": "quartz"
+    }
+]
